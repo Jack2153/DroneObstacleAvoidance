@@ -1,0 +1,20 @@
+[1.496s] Invoking command in '/home/felix/ros2_ws/src/my_drone_test': PYTHONPATH=/home/felix/ros2_ws/build/my_drone_test/prefix_override:/home/felix/ros2_ws/install/my_drone_test/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/my_drone_test build --build-base /home/felix/ros2_ws/build/my_drone_test/build install --record /home/felix/ros2_ws/build/my_drone_test/install.log --single-version-externally-managed
+[2.001s] running egg_info
+[2.004s] writing ../../build/my_drone_test/my_drone_test.egg-info/PKG-INFO
+[2.004s] writing dependency_links to ../../build/my_drone_test/my_drone_test.egg-info/dependency_links.txt
+[2.005s] writing entry points to ../../build/my_drone_test/my_drone_test.egg-info/entry_points.txt
+[2.006s] writing requirements to ../../build/my_drone_test/my_drone_test.egg-info/requires.txt
+[2.006s] writing top-level names to ../../build/my_drone_test/my_drone_test.egg-info/top_level.txt
+[2.011s] reading manifest file '../../build/my_drone_test/my_drone_test.egg-info/SOURCES.txt'
+[2.014s] writing manifest file '../../build/my_drone_test/my_drone_test.egg-info/SOURCES.txt'
+[2.014s] running build
+[2.015s] running build_py
+[2.015s] running install
+[2.016s] running install_lib
+[2.019s] running install_data
+[2.021s] running install_egg_info
+[2.025s] removing '/home/felix/ros2_ws/install/my_drone_test/lib/python3.10/site-packages/my_drone_test-0.0.0-py3.10.egg-info' (and everything under it)
+[2.026s] Copying ../../build/my_drone_test/my_drone_test.egg-info to /home/felix/ros2_ws/install/my_drone_test/lib/python3.10/site-packages/my_drone_test-0.0.0-py3.10.egg-info
+[2.028s] running install_scripts
+[2.067s] writing list of installed files to '/home/felix/ros2_ws/build/my_drone_test/install.log'
+[2.134s] Invoked command in '/home/felix/ros2_ws/src/my_drone_test' returned '0': PYTHONPATH=/home/felix/ros2_ws/build/my_drone_test/prefix_override:/home/felix/ros2_ws/install/my_drone_test/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py egg_info --egg-base ../../build/my_drone_test build --build-base /home/felix/ros2_ws/build/my_drone_test/build install --record /home/felix/ros2_ws/build/my_drone_test/install.log --single-version-externally-managed

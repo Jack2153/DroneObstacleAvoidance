@@ -1,0 +1,16 @@
+running develop
+running egg_info
+writing my_drone_test.egg-info/PKG-INFO
+writing dependency_links to my_drone_test.egg-info/dependency_links.txt
+writing entry points to my_drone_test.egg-info/entry_points.txt
+writing requirements to my_drone_test.egg-info/requires.txt
+writing top-level names to my_drone_test.egg-info/top_level.txt
+reading manifest file 'my_drone_test.egg-info/SOURCES.txt'
+writing manifest file 'my_drone_test.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/felix/ros2_ws/install/my_drone_test/lib/python3.10/site-packages/my-drone-test.egg-link (link to .)
+Installing lidar_subscriber script to /home/felix/ros2_ws/install/my_drone_test/lib/my_drone_test
+
+Installed /home/felix/ros2_ws/build/my_drone_test
+running install_data
+copying package.xml -> /home/felix/ros2_ws/install/my_drone_test/share/my_drone_test

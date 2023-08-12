@@ -1,0 +1,18 @@
+[0.832s] Invoking command in '/home/felix/ros2_ws/build/my_drone_test': PYTHONPATH=/home/felix/ros2_ws/build/my_drone_test/prefix_override:/home/felix/ros2_ws/install/my_drone_test/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/felix/ros2_ws/build/my_drone_test/build --no-deps install_data
+[1.136s] running develop
+[1.316s] running egg_info
+[1.316s] writing my_drone_test.egg-info/PKG-INFO
+[1.319s] writing dependency_links to my_drone_test.egg-info/dependency_links.txt
+[1.319s] writing entry points to my_drone_test.egg-info/entry_points.txt
+[1.320s] writing requirements to my_drone_test.egg-info/requires.txt
+[1.320s] writing top-level names to my_drone_test.egg-info/top_level.txt
+[1.324s] reading manifest file 'my_drone_test.egg-info/SOURCES.txt'
+[1.325s] writing manifest file 'my_drone_test.egg-info/SOURCES.txt'
+[1.328s] running build_ext
+[1.328s] Creating /home/felix/ros2_ws/install/my_drone_test/lib/python3.10/site-packages/my-drone-test.egg-link (link to .)
+[1.329s] Installing lidar_subscriber script to /home/felix/ros2_ws/install/my_drone_test/lib/my_drone_test
+[1.330s] 
+[1.330s] Installed /home/felix/ros2_ws/build/my_drone_test
+[1.330s] running install_data
+[1.330s] copying package.xml -> /home/felix/ros2_ws/install/my_drone_test/share/my_drone_test
+[1.368s] Invoked command in '/home/felix/ros2_ws/build/my_drone_test' returned '0': PYTHONPATH=/home/felix/ros2_ws/build/my_drone_test/prefix_override:/home/felix/ros2_ws/install/my_drone_test/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 setup.py develop --editable --build-directory /home/felix/ros2_ws/build/my_drone_test/build --no-deps install_data

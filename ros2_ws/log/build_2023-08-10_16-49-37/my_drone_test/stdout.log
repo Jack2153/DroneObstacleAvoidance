@@ -1,0 +1,30 @@
+running egg_info
+creating ../../build/my_drone_test/my_drone_test.egg-info
+writing ../../build/my_drone_test/my_drone_test.egg-info/PKG-INFO
+writing dependency_links to ../../build/my_drone_test/my_drone_test.egg-info/dependency_links.txt
+writing requirements to ../../build/my_drone_test/my_drone_test.egg-info/requires.txt
+writing top-level names to ../../build/my_drone_test/my_drone_test.egg-info/top_level.txt
+writing manifest file '../../build/my_drone_test/my_drone_test.egg-info/SOURCES.txt'
+reading manifest file '../../build/my_drone_test/my_drone_test.egg-info/SOURCES.txt'
+writing manifest file '../../build/my_drone_test/my_drone_test.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/felix/ros2_ws/build/my_drone_test/build
+creating /home/felix/ros2_ws/build/my_drone_test/build/lib
+creating /home/felix/ros2_ws/build/my_drone_test/build/lib/my_drone_test
+copying my_drone_test/__init__.py -> /home/felix/ros2_ws/build/my_drone_test/build/lib/my_drone_test
+running install
+running install_lib
+creating /home/felix/ros2_ws/install/my_drone_test/lib/python3.10/site-packages/my_drone_test
+copying /home/felix/ros2_ws/build/my_drone_test/build/lib/my_drone_test/__init__.py -> /home/felix/ros2_ws/install/my_drone_test/lib/python3.10/site-packages/my_drone_test
+byte-compiling /home/felix/ros2_ws/install/my_drone_test/lib/python3.10/site-packages/my_drone_test/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/felix/ros2_ws/install/my_drone_test/share/ament_index
+creating /home/felix/ros2_ws/install/my_drone_test/share/ament_index/resource_index
+creating /home/felix/ros2_ws/install/my_drone_test/share/ament_index/resource_index/packages
+copying resource/my_drone_test -> /home/felix/ros2_ws/install/my_drone_test/share/ament_index/resource_index/packages
+copying package.xml -> /home/felix/ros2_ws/install/my_drone_test/share/my_drone_test
+running install_egg_info
+Copying ../../build/my_drone_test/my_drone_test.egg-info to /home/felix/ros2_ws/install/my_drone_test/lib/python3.10/site-packages/my_drone_test-0.0.0-py3.10.egg-info
+running install_scripts
+writing list of installed files to '/home/felix/ros2_ws/build/my_drone_test/install.log'
