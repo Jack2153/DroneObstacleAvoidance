@@ -146,9 +146,9 @@
         </inertia>
       </inertial>
       
-      <sensor name='gpu_lidar' type='gpu_lidar'>"
-		    <pose relative_to='lidar_frame'>0 0 0 0 0 0</pose>
-		    <topic>lidar</topic>
+      <sensor name='gpu_lidar_front' type='gpu_lidar_front'>"
+		    <pose relative_to='lidar_front_frame'>0 0 0 0 0 0</pose>
+		    <topic>lidar_front</topic>
 		    <update_rate>10</update_rate>
 		    <ray>
 			<scan>
