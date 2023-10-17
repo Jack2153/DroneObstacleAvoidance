@@ -125,7 +125,7 @@ def printLocation():
     print ("Global Location (relative altitude): %s" % vehicle.location.global_relative_frame)
     print ("Altitude relative to home_location: %s" % vehicle.location.global_relative_frame.alt)
 
-
+# ROS Node that implements the floodfill algorithm and movement of the drone
 class FloodFillNode(Node):
 
     # Drone step to count the movements in the movement map
