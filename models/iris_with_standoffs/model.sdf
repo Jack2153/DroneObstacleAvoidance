@@ -132,7 +132,7 @@
     </link>
     
     
-    <link name='lidar_link'>
+    <link name='lidar_link_front'>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.15</mass>
@@ -146,8 +146,9 @@
         </inertia>
       </inertial>
       
-      <sensor name='gpu_lidar_front' type='gpu_lidar_front'>"
-		    <pose relative_to='lidar_front_frame'>0 0 0 0 0 0</pose>
+      
+      <sensor name='gpu_lidar_front' type='gpu_lidar'>"
+		    <pose relative_to='lidar_frame_front'>0 0 0 0 0 0</pose>
 		    <topic>lidar_front</topic>
 		    <update_rate>10</update_rate>
 		    <ray>
@@ -176,8 +177,195 @@
 		</sensor>
       
     </link>
-    <joint name='lidar_joint' type='revolute'>
-      <child>lidar_link</child>
+    <joint name='lidar_joint_front' type='revolute'>
+      <child>lidar_link_front</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    
+    <link name='lidar_link_right'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.15</mass>
+        <inertia>
+          <ixx>0.00001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00002</iyy>
+          <iyz>0</iyz>
+          <izz>0.00002</izz>
+        </inertia>
+      </inertial>
+      
+    
+    <sensor name='gpu_lidar_right' type='gpu_lidar'>"
+		    <pose relative_to='lidar_frame_right'>0 0 0 0 0 4.7124</pose>
+		    <topic>lidar_right</topic>
+		    <update_rate>10</update_rate>
+		    <ray>
+			<scan>
+			    <horizontal>
+				<samples>640</samples>
+				<resolution>1</resolution>
+				<min_angle>0</min_angle>
+				<max_angle>0</max_angle>
+			    </horizontal>
+			    <vertical>
+				<samples>1</samples>
+				<resolution>0.01</resolution>
+				<min_angle>0</min_angle>
+				<max_angle>0</max_angle>
+			    </vertical>
+			</scan>
+			<range>
+			    <min>0.1</min>
+			    <max>100.0</max>
+			    <resolution>0.01</resolution>
+			</range>
+		    </ray>
+		    <always_on>1</always_on>
+		    <visualize>true</visualize>
+		</sensor>
+      
+    </link>
+    <joint name='lidar_joint_right' type='revolute'>
+      <child>lidar_link_right</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    
+      
+      <link name='lidar_link_back'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.15</mass>
+        <inertia>
+          <ixx>0.00001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00002</iyy>
+          <iyz>0</iyz>
+          <izz>0.00002</izz>
+        </inertia>
+      </inertial>
+      
+    
+    <sensor name='gpu_lidar_back' type='gpu_lidar'>"
+		    <pose relative_to='lidar_frame_back'>-0.1 0 0 0 0 3.1416</pose>
+		    <topic>lidar_back</topic>
+		    <update_rate>10</update_rate>
+		    <ray>
+			<scan>
+			    <horizontal>
+				<samples>640</samples>
+				<resolution>1</resolution>
+				<min_angle>0</min_angle>
+				<max_angle>0</max_angle>
+			    </horizontal>
+			    <vertical>
+				<samples>1</samples>
+				<resolution>0.01</resolution>
+				<min_angle>0</min_angle>
+				<max_angle>0</max_angle>
+			    </vertical>
+			</scan>
+			<range>
+			    <min>0.1</min>
+			    <max>100.0</max>
+			    <resolution>0.01</resolution>
+			</range>
+		    </ray>
+		    <always_on>1</always_on>
+		    <visualize>true</visualize>
+		</sensor>
+      
+    </link>
+    <joint name='lidar_joint_back' type='revolute'>
+      <child>lidar_link_back</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    
+      
+      <link name='lidar_link_left'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.15</mass>
+        <inertia>
+          <ixx>0.00001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00002</iyy>
+          <iyz>0</iyz>
+          <izz>0.00002</izz>
+        </inertia>
+      </inertial>
+    
+    <sensor name='gpu_lidar_left' type='gpu_lidar'>"
+		    <pose relative_to='lidar_frame_left'>0 0 0 0 0 1.5708</pose>
+		    <topic>lidar_left</topic>
+		    <update_rate>10</update_rate>
+		    <ray>
+			<scan>
+			    <horizontal>
+				<samples>640</samples>
+				<resolution>1</resolution>
+				<min_angle>0</min_angle>
+				<max_angle>0</max_angle>
+			    </horizontal>
+			    <vertical>
+				<samples>1</samples>
+				<resolution>0.01</resolution>
+				<min_angle>0</min_angle>
+				<max_angle>0</max_angle>
+			    </vertical>
+			</scan>
+			<range>
+			    <min>0.1</min>
+			    <max>100.0</max>
+			    <resolution>0.01</resolution>
+			</range>
+		    </ray>
+		    <always_on>1</always_on>
+		    <visualize>true</visualize>
+		</sensor>
+      
+    </link>
+    <joint name='lidar_joint_left' type='revolute'>
+      <child>lidar_link_left</child>
       <parent>base_link</parent>
       <axis>
         <xyz>0 0 1</xyz>
@@ -519,8 +707,20 @@
       </physics>
     </joint>
     
-    <frame name="lidar_frame" attached_to='base_link'>
-		    <pose>0.8 0 0.5 0 0 0</pose>
+	<frame name="lidar_frame_front" attached_to='base_link'>
+		    <pose>0 0 0 0 0 0</pose>
+		</frame>
+		
+    	<frame name="lidar_frame_right" attached_to='base_link'>
+		    <pose>0 0 0 0 0 0</pose>
+		</frame>
+		
+	<frame name="lidar_frame_back" attached_to='base_link'>
+		    <pose>0 0 0 0 0 0</pose>
+		</frame>
+		
+	<frame name="lidar_frame_left" attached_to='base_link'>
+		    <pose>0 0 0 0 0 0</pose>
 		</frame>
     
   </model>
