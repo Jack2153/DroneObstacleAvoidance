@@ -133,31 +133,31 @@ class FloodFillNode(Node):
     def __init__(self):
         super().__init__('flood_fill_node')
 
-        # Create a subscriber that listens to the /lidar_right topic of ROS2 where the right lidar sesnor publishes the data 
+        # Create a subscriber that listens to the /sensor_right topic of ROS2 where the right lidar sesnor publishes the data 
         self.subscription_right = self.create_subscription(
             LaserScan,
-            '/lidar_right',
+            '/sensor_right',
             self.lidar_right_callback,
             10)
 
-        # Create a subscriber that listens to the /lidar_left topic of ROS2 where the left lidar sesnor publishes the data 
+        # Create a subscriber that listens to the /sensor_left topic of ROS2 where the left lidar sesnor publishes the data 
         self.subscription_left = self.create_subscription(
             LaserScan,
-            '/lidar_left',
+            '/sensor_left',
             self.lidar_left_callback,
             10)
         
-        # Create a subscriber that listens to the /lidar_back topic of ROS2 where the back lidar sesnor publishes the data 
+        # Create a subscriber that listens to the /sensor_back topic of ROS2 where the back lidar sesnor publishes the data 
         self.subscription_back = self.create_subscription(
             LaserScan,
-            '/lidar_back',
+            '/sensor_back',
             self.lidar_back_callback,
             10)
         
-        # Create a subscriber that listens to the /lidar_front topic of ROS2 where the front lidar sesnor publishes the data 
+        # Create a subscriber that listens to the /sensor_front topic of ROS2 where the front lidar sesnor publishes the data 
         self.subscription_front = self.create_subscription(
             LaserScan,
-            '/lidar_front',
+            '/sensor_front',
             self.lidar_front_callback,
             10)
         
