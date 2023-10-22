@@ -149,7 +149,7 @@
       
       <sensor name='gpu_lidar_front' type='gpu_lidar'>"
 		    <pose relative_to='lidar_frame_front'>0 0 0 0 0 0</pose>
-		    <topic>lidar_front</topic>
+		    <topic>sensor_front</topic>
 		    <update_rate>10</update_rate>
 		    <ray>
 			<scan>
@@ -211,7 +211,7 @@
     
     <sensor name='gpu_lidar_right' type='gpu_lidar'>"
 		    <pose relative_to='lidar_frame_right'>0 0 0 0 0 4.7124</pose>
-		    <topic>lidar_right</topic>
+		    <topic>sensor_right</topic>
 		    <update_rate>10</update_rate>
 		    <ray>
 			<scan>
@@ -274,7 +274,7 @@
     
     <sensor name='gpu_lidar_back' type='gpu_lidar'>"
 		    <pose relative_to='lidar_frame_back'>-0.1 0 0 0 0 3.1416</pose>
-		    <topic>lidar_back</topic>
+		    <topic>sensor_back</topic>
 		    <update_rate>10</update_rate>
 		    <ray>
 			<scan>
@@ -336,7 +336,7 @@
     
     <sensor name='gpu_lidar_left' type='gpu_lidar'>"
 		    <pose relative_to='lidar_frame_left'>0 0 0 0 0 1.5708</pose>
-		    <topic>lidar_left</topic>
+		    <topic>sensor_left</topic>
 		    <update_rate>10</update_rate>
 		    <ray>
 			<scan>
