@@ -31,7 +31,6 @@ def arm_and_takeoff(aTargetAltitude):
     vehicle.mode = VehicleMode("GUIDED")
     vehicle.armed = True
 
-
     while not vehicle.armed:
         print(" Waiting for arming...")
         time.sleep(1)
@@ -96,7 +95,7 @@ def get_distance_metres(aLocation1, aLocation2):
     dlong = aLocation2.lon - aLocation1.lon
     return math.sqrt((dlat*dlat) + (dlong*dlong)) * 1.113195e5
 
-# Function to move the vehicle north a certain amount of meters north and east
+# Function to move the vehicle north a certain number of meters north and east
 def goto(dNorth, dEast, gotoFunction=vehicle.simple_goto):
     """
     Moves the vehicle to a position dNorth metres North and dEast metres East of the current position.
@@ -119,13 +118,11 @@ def goto(dNorth, dEast, gotoFunction=vehicle.simple_goto):
     time.sleep(20)
 
 
-
 # Print the location for debugging purposes
 def printLocation():
     print ("Global Location (relative altitude): %s" % vehicle.location.global_relative_frame)
     print ("Altitude relative to home_location: %s" % vehicle.location.global_relative_frame.alt)
 
-# ROS Node that implements the floodfill algorithm and movement of the drone
 class FloodFillNode(Node):
 
     # Drone step to count the movements in the movement map
@@ -133,32 +130,32 @@ class FloodFillNode(Node):
     def __init__(self):
         super().__init__('flood_fill_node')
 
-        # Create a subscriber that listens to the /sensor_right topic of ROS2 where the right lidar sesnor publishes the data 
+        # Create a subscriber that listens to the /sensor_right topic of ROS2 where the right sensor publishes the data 
         self.subscription_right = self.create_subscription(
             LaserScan,
             '/sensor_right',
-            self.lidar_right_callback,
+            self.sensor_right_callback,
             10)
 
-        # Create a subscriber that listens to the /sensor_left topic of ROS2 where the left lidar sesnor publishes the data 
+        # Create a subscriber that listens to the /sensor_left topic of ROS2 where the left sensor publishes the data 
         self.subscription_left = self.create_subscription(
             LaserScan,
             '/sensor_left',
-            self.lidar_left_callback,
+            self.sensor_left_callback,
             10)
         
-        # Create a subscriber that listens to the /sensor_back topic of ROS2 where the back lidar sesnor publishes the data 
+        # Create a subscriber that listens to the /sensor_back topic of ROS2 where the back sensor publishes the data 
         self.subscription_back = self.create_subscription(
             LaserScan,
             '/sensor_back',
-            self.lidar_back_callback,
+            self.sensor_back_callback,
             10)
         
-        # Create a subscriber that listens to the /sensor_front topic of ROS2 where the front lidar sesnor publishes the data 
+        # Create a subscriber that listens to the /sensor_front topic of ROS2 where the front sensor publishes the data 
         self.subscription_front = self.create_subscription(
             LaserScan,
             '/sensor_front',
-            self.lidar_front_callback,
+            self.sensor_front_callback,
             10)
         
         # Initialize all the maps
@@ -173,13 +170,12 @@ class FloodFillNode(Node):
         # Set the target altitude to 4 meters
         aTargetAltitude = float(4)
 
-        # Only execute arm_and_takeoff if the current altitude of the drone ist below 90% of the target altitude
+        # Only execute arm_and_takeoff if the current altitude of the drone is below 90% of the target altitude
         if vehicle.location.global_relative_frame.alt <= aTargetAltitude * 0.9:
             arm_and_takeoff(aTargetAltitude)
 
         # Save the y and y coordinates of the target
         self.target_x, self.target_y = self.set_target()
-
 
     # Set the target via use input 
     def set_target(self):
@@ -187,38 +183,38 @@ class FloodFillNode(Node):
         target_y = int(input("Bitte geben Sie die Y-Koordinate des Zielpunkts ein: "))
         return target_x, target_y
 
-    # Callback function that is executed everytime the front lidar sensor meassures a distance
-    def lidar_front_callback(self, msg):
-        distance_to_obstacle = msg.ranges[0] # Take the first meassurement as the lidar sensor behaves the same way as a proximity sensor that only gives back one distance value for one meassurement
+    # Callback function that is executed every time the front sensor measures a distance
+    def sensor_front_callback(self, msg):
+        distance_to_obstacle = msg.ranges[0] # Take the first measurement as the lidar sensor behaves the same way as a proximity sensor that only gives back one distance value for one measurement
     
         if distance_to_obstacle != float('inf'):  # Check for infinite values, when the value is not infinite there is an bstacle
             distance_to_obstacle = int(round(distance_to_obstacle)) # Convert the distance to obstacle into an integer if it is not 'inf'
-            self.add_obstacle(distance_to_obstacle, sensor="front") # Add an ostacle to the map with the right distance
+            self.add_obstacle(distance_to_obstacle, sensor="front") # Add an obstacle to the map with the right distance
         self.main_program()
 
-    # Callback function that is executed everytime the right lidar sensor meassures a distance
-    def lidar_right_callback(self, msg):
-        distance_to_obstacle = msg.ranges[0] # Take the first meassurement as the lidar sensor behaves the same way as a proximity sensor that only gives back one distance value for one meassurement
+    # Callback function that is executed every time the right sensor measures a distance
+    def sensor_right_callback(self, msg):
+        distance_to_obstacle = msg.ranges[0] # Take the first measurement as the lidar sensor behaves the same way as a proximity sensor that only gives back one distance value for one measurement
     
         if distance_to_obstacle != float('inf'):  # Check for infinite values, when the value is not infinite there is an bstacle
             distance_to_obstacle = int(round(distance_to_obstacle)) # Convert the distance to obstacle into an integer if it is not 'inf'
-            self.add_obstacle(distance_to_obstacle, sensor="right") # Add an ostacle to the map with the right distance
+            self.add_obstacle(distance_to_obstacle, sensor="right") # Add an obstacle to the map with the right distance
 
-    # Callback function that is executed everytime the left lidar sensor meassures a distance
-    def lidar_left_callback(self, msg):
-        distance_to_obstacle = msg.ranges[0] # Take the first meassurement as the lidar sensor behaves the same way as a proximity sensor that only gives back one distance value for one meassurement
+    # Callback function that is executed every time the lidar sensor measures a distance
+    def sensor_left_callback(self, msg):
+        distance_to_obstacle = msg.ranges[0] # Take the first measurement as the lidar sensor behaves the same way as a proximity sensor that only gives back one distance value for one measurement
     
         if distance_to_obstacle != float('inf'):  # Check for infinite values, when the value is not infinite there is an bstacle
             distance_to_obstacle = int(round(distance_to_obstacle)) # Convert the distance to obstacle into an integer if it is not 'inf'
-            self.add_obstacle(distance_to_obstacle, sensor="left") # Add an ostacle to the map with the right distance
+            self.add_obstacle(distance_to_obstacle, sensor="left") # Add an obstacle to the map with the right distance
 
-    # Callback function that is executed everytime the back lidar sensor meassures a distance
-    def lidar_back_callback(self, msg):
-        distance_to_obstacle = msg.ranges[0] # Take the first meassurement as the lidar sensor behaves the same way as a proximity sensor that only gives back one distance value for one meassurement
+    # Callback function that is executed every time the back sensor measures a distance
+    def sensor_back_callback(self, msg):
+        distance_to_obstacle = msg.ranges[0] # Take the first measurement as the lidar sensor behaves the same way as a proximity sensor that only gives back one distance value for one measurement
     
         if distance_to_obstacle != float('inf'):  # Check for infinite values, when the value is not infinite there is an bstacle
             distance_to_obstacle = int(round(distance_to_obstacle + 0.1)) # Convert the distance to obstacle into an integer if it is not 'inf'
-            self.add_obstacle(distance_to_obstacle, sensor="back") # Add an ostacle to the map with the right distance
+            self.add_obstacle(distance_to_obstacle, sensor="back") # Add an obstacle to the map with the right distance
 
     # Function for the main program
     def main_program(self):
@@ -242,28 +238,28 @@ class FloodFillNode(Node):
         if self.robot_x == self.target_x and self.robot_y == self.target_y:
             print("Der Roboter ist am Ziel angekommen.")
             rclpy.shutdown() # Shutdown the ROS 2 client library
-            vehicle.close() # Close the vehicle object of dronekit
+            vehicle.close() # Close the vehicle object of DroneKit
             
 
         # Move the drone in the map and in real life/simulator
         self.move_robot()
         time.sleep(2)
 
-    # Function to add an obstacle in front of the drone at a certain distance in meters from the drone based on whcih sensor meassures a distance
+    # Function to add an obstacle in front of the drone at a certain distance in meters from the drone based on which sensor measures a distance
     def add_obstacle(self, distance, sensor):
-        # If the front sensor meassures a distance, there is an obstacle in the x-axis in front of the drone
+        # If the front sensor measures a distance, there is an obstacle in the x-axis in front of the drone
         if sensor == "front":
             obstacle_x = self.robot_x + distance 
             obstacle_y = self.robot_y
-        # If the right sensor meassures a distance, there is an obstacle in the y-axis
+        # If the right sensor measures a distance, there is an obstacle in the y-axis
         elif sensor == "right":
             obstacle_x = self.robot_x
             obstacle_y = self.robot_y - distance
-        # If the left sensor meassures a distance, there is an obstacle in the y-axis
+        # If the left sensor measures a distance, there is an obstacle in the y-axis
         elif sensor == "left":
             obstacle_x = self.robot_x
             obstacle_y = self.robot_y + distance
-        # If the back sensor meassures a distance, there is an obstacle in the x-axis in the back of the drone
+        # If the back sensor measures a distance, there is an obstacle in the x-axis in the back of the drone
         elif sensor == "back":
             obstacle_x = self.robot_x - distance
             obstacle_y = self.robot_y
@@ -308,7 +304,7 @@ class FloodFillNode(Node):
         min_positions = [] # Initialize a list to store positions with the minimum distance value
 
         
-        # Loop to find the neighbor cell with the minimum distance
+        # Loop to find the neighbour cell with the minimum distance
         for i in range(4):
             new_x, new_y = self.robot_x + dx[i], self.robot_y + dy[i] # Calculate new potential positions based on the movement direction
             if 0 <= new_x < n and 0 <= new_y < m and self.map_distance[new_x][new_y] >= 0: # Check if new position is within the map and that it is not an obstacle
@@ -321,7 +317,6 @@ class FloodFillNode(Node):
         if min_positions: # Check if there are any cells to move to
             new_x, new_y = random.choice(min_positions) # Randomly choose one of the cells in the list min_positions
 
-
             # Print the current and the new location for debugging purposes
             print(f"self.robot_x: {self.robot_x}")
             print(f"self.robot_y: {self.robot_y}")
@@ -333,7 +328,7 @@ class FloodFillNode(Node):
             movement_y = new_y - self.robot_y
 
             self.robot_x, self.robot_y = new_x, new_y # Update the robots current position
-            self.robot_step_count += 1 # Increment the step count to isplay how many steps the drone already moved
+            self.robot_step_count += 1 # Increment the step count to display how many steps the drone already moved
             self.map_movement[new_x][new_y] = self.robot_step_count # Set the new position of the drone on the movement map with the value of the drone step to indicate how many steps the drone already moved
             
         # Code to actually move the drone based on the calculated x and y movement (movement_x,  movement_y)
