@@ -21,7 +21,7 @@ process = subprocess.Popen(
     shell=True
 )
 
-My_Cmmnd = " ros2 run ros_gz_bridge parameter_bridge /lidar_front@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan"
+My_Cmmnd = " ros2 run ros_gz_bridge parameter_bridge /sensor_front@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan"
 
 process = subprocess.Popen(
     "gnome-terminal -e 'bash -c \""+My_Cmmnd+";bash\"'",
@@ -30,7 +30,7 @@ process = subprocess.Popen(
     shell=True
 )
 
-My_Cmmnd = " ros2 run ros_gz_bridge parameter_bridge /lidar_back@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan"
+My_Cmmnd = " ros2 run ros_gz_bridge parameter_bridge /sensor_back@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan"
 
 process = subprocess.Popen(
     "gnome-terminal -e 'bash -c \""+My_Cmmnd+";bash\"'",
@@ -39,7 +39,7 @@ process = subprocess.Popen(
     shell=True
 )
 
-My_Cmmnd = " ros2 run ros_gz_bridge parameter_bridge /lidar_right@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan"
+My_Cmmnd = " ros2 run ros_gz_bridge parameter_bridge /sensor_right@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan"
 
 process = subprocess.Popen(
     "gnome-terminal -e 'bash -c \""+My_Cmmnd+";bash\"'",
@@ -48,7 +48,7 @@ process = subprocess.Popen(
     shell=True
 )
 
-My_Cmmnd = " ros2 run ros_gz_bridge parameter_bridge /lidar_left@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan"
+My_Cmmnd = " ros2 run ros_gz_bridge parameter_bridge /sensor_left@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan"
 
 process = subprocess.Popen(
     "gnome-terminal -e 'bash -c \""+My_Cmmnd+";bash\"'",
