@@ -101,7 +101,7 @@ Ultrasonic distance sensors
 ### Simulation stack
 
 - Gazebo Garden - physics, environment and range-sensor simulation
-- ROS 2 Humble - sensor communication using nodes and topics
+- ROS 2 - sensor communication using nodes and topics
 - ros_gz_bridge - bridges Gazebo sensor messages to ROS 2
 - ArduPilot SITL - simulated autopilot and flight controller
 - DroneKit and MAVLink - vehicle communication and movement commands
@@ -250,7 +250,7 @@ hardware-oriented code and files from the physical prototype.
 
 - Python
 - NumPy
-- ROS 2 Humble
+- ROS 2
 - Gazebo Garden
 - ros_gz_bridge
 - ArduPilot and ArduCopter
