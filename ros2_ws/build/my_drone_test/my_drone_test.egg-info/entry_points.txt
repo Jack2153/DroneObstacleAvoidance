@@ -1,3 +1,0 @@
-[console_scripts]
-lidar_subscriber = my_drone_test.lidar_subscriber:main
-
